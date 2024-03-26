@@ -13,7 +13,8 @@ const mainContent = document.getElementById("main_container"),
     logoBtn = document.getElementById("logoBtn"),
     glavnayaBtn = document.getElementById("glavnayaBtn"),
     addBtn = document.getElementById("addBtn"),
-    korzinaBtn = document.getElementById("korzinaBtn");
+    korzinaBtn = document.getElementById("korzinaBtn"),
+    korzinaCounter = document.querySelector(".korzinaCounter");
 
 /*----tovarList----------------------------*/
 
@@ -105,7 +106,8 @@ function pageCleaner() {
 /*----func----addToKorzina------------------------*/
 
 function addToKorzina() {
-    let itemId = event.target.getAttribute('id')[2];
+    korzinaCounter.classList.add("active");
+    let itemId = event.target.getAttribute('id').replace(/\D/g, "");;
     let res = tovarList[itemId];
     let newKorzinaItem = {
         title: res.title,
@@ -114,7 +116,7 @@ function addToKorzina() {
         img: res.img
     };
     korzinaList.push(newKorzinaItem);
-    console.log(newKorzinaItem);
+    korzinaCounter.innerHTML = korzinaList.length;
 }
 
 /*----func----tovarsPage------------------------*/
@@ -139,7 +141,9 @@ function displayTovars() {
     let displayTovar = '';
     const tovars = document.querySelector(".tovars");
 
-    if (tovarList.length === 0) document.getElementsByClassName("pa1_container").innerHTML += ``;
+    if (tovarList.length === 0) {
+        document.getElementsByClassName("pa1_container").innerHTML += ``;
+    };
     tovarList.forEach(function(item, i) {
         displayTovar = `
         <div class="tovar" id="item_${i}">
@@ -162,7 +166,17 @@ function addNewAlbum() {
     albumDescription = document.getElementById("albumDescription"),
     albumPrice = document.getElementById("albumPrice");
 
-    if (!albumTitle.value || !albumDescription.value || !albumPrice.value) return;
+    /*----проверка--на--заполненность--полей----------------------*/
+    if (!albumTitle.value || !albumDescription.value || !albumPrice.value) {
+        alert("Все поля должны быть заполнены!");
+        return;
+    }
+
+    /*----проверка--поля--цена------------------------*/
+    if (Number(albumPrice.value) + 0 != Number(albumPrice.value)) {
+        alert(`Поле "цена" должно содержать числовое значение!`)
+        return;    
+    }; 
     
     let newAlbum = {
         title: albumTitle.value,
@@ -213,34 +227,41 @@ function displayKorzinaItems() {
     let displayKorzinaItem = '';
     const korzina = document.querySelector(".korzina");
 
-    if (tovarList.length === 0) document.getElementsByClassName("pa1_container").innerHTML += ``;
-    korzinaList.forEach(function(item, i) {
-        displayKorzinaItem = `
-        <div class="korzinaItem">
-            <div class="korzina_tovar_image_div">
-                <img src="images/${item.img}.jfif" alt="tovar" class="korzina_tovar_image">
-            </div>
-            <h3 class="korzina_tovar_title">${item.title}</h3>
-            <h4 class="korzina_tovar_description">${item.description}</h4>
-            <h4 class="korzina_tovar_price">${item.price}$</h4>
-            <span class="korzina_tovar_del" id="d_${i}" onclick="delFromKorzina(event)">X</span>
-        </div>
+    if (korzinaList.length == 0) {
+        korzina.innerHTML = `
+            <span id="pusto">Пусто</span>
         `;
-
-        korzina.innerHTML += displayKorzinaItem;
-    });
+    } else {
+        korzinaList.forEach(function(item, i) {
+            displayKorzinaItem = `
+            <div class="korzinaItem">
+                <div class="korzina_tovar_image_div">
+                    <img src="images/${item.img}.jfif" alt="tovar" class="korzina_tovar_image">
+                </div>
+                <h3 class="korzina_tovar_title">${item.title}</h3>
+                <h4 class="korzina_tovar_description">${item.description}</h4>
+                <h4 class="korzina_tovar_price">${item.price}$</h4>
+                <span class="korzina_tovar_del" id="d_${i}" onclick="delFromKorzina(event)">X</span>
+            </div>
+            `;
+    
+            korzina.innerHTML += displayKorzinaItem;
+        });
+    }
 };
 
 /*----func----delFromKorzina------------------------*/
 
 function delFromKorzina() {
-    if (korzinaList.length == 1) {
+    if (korzinaList.length == 0) {
         korzinaList = [];
+        korzinaCounter.classList.remove("active");
     } else {
-        delete korzinaList[event.target.getAttribute('id')[2]];
-    }
+        korzinaList.splice(event.target.getAttribute('id').replace(/\D/g, ""), 1);
+    };
     korzinaPage();
     displayKorzinaItems();
+    korzinaCounter.innerHTML = korzinaList.length;
 };
 
 /*----func----korzinaPage------------------------*/
