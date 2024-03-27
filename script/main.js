@@ -14,7 +14,10 @@ const mainContent = document.getElementById("main_container"),
     glavnayaBtn = document.getElementById("glavnayaBtn"),
     addBtn = document.getElementById("addBtn"),
     korzinaBtn = document.getElementById("korzinaBtn"),
+    aboutBtn = document.getElementById("aboutBtn"),
     korzinaCounter = document.querySelector(".korzinaCounter");
+
+let itogoPriceCounter = 0;
 
 /*----tovarList----------------------------*/
 
@@ -117,6 +120,10 @@ function addToKorzina() {
     };
     korzinaList.push(newKorzinaItem);
     korzinaCounter.innerHTML = korzinaList.length;
+    itogoPriceCounter = 0;
+    korzinaList.forEach(function(res) {
+        itogoPriceCounter += res.price;
+    });
 }
 
 /*----func----tovarsPage------------------------*/
@@ -177,6 +184,13 @@ function addNewAlbum() {
         alert(`Поле "цена" должно содержать числовое значение!`)
         return;    
     }; 
+
+    /*----проверка--поля--цена--на--отрицательное--значение------------------*/
+    if (Number(albumPrice.value) < 10) {
+        alert(`Цена не может быть ниже 10$!`)
+        return;    
+    }; 
+
     
     let newAlbum = {
         title: albumTitle.value,
@@ -253,12 +267,17 @@ function displayKorzinaItems() {
 /*----func----delFromKorzina------------------------*/
 
 function delFromKorzina() {
+    let itemId = event.target.getAttribute('id');
     if (korzinaList.length == 0) {
         korzinaList = [];
         korzinaCounter.classList.remove("active");
     } else {
-        korzinaList.splice(event.target.getAttribute('id').replace(/\D/g, ""), 1);
+        korzinaList.splice(itemId.replace(/\D/g, ""), 1);
     };
+    itogoPriceCounter = 0;
+    korzinaList.forEach(function(res) {
+        itogoPriceCounter += res.price;
+    });
     korzinaPage();
     displayKorzinaItems();
     korzinaCounter.innerHTML = korzinaList.length;
@@ -270,9 +289,31 @@ function korzinaPage() {
     mainContent.innerHTML = `
     <div class="pa1">
         <div class="pa1_container">
-            <h2 class="tittle korzinaTittle">Корзина</h2>
+            <h2 class="tittle leftTxt">Корзина</h2>
             <div class="korzina">
-            </div>        
+            </div>
+            <div class="buyFooter _container">
+                <div class="buyFooter_left">
+                    <span id="itogo">Итого:</span>
+                    <span id="itogoPrice">${itogoPriceCounter}$</span>
+                </div>
+                <div class="buyFooter_right">
+                    <button class="buyFooter_btn">Купить</button>                
+                </div>
+            </div>      
+        </div>
+    </div>
+    `;
+};
+
+/*----func----aboutPage------------------------*/
+
+function aboutPage() {
+    mainContent.innerHTML = `
+    <div class="pa1">
+        <div class="pa1_container">
+            <h2 class="tittle leftTxt">О нас</h2>
+            <span class="aboutSpan">Ну и что я здесь должен был написать?<br>Я бедный студент...</span>
         </div>
     </div>
     `;
@@ -300,6 +341,11 @@ korzinaBtn.addEventListener("click", function() {
     pageCleaner();
     korzinaPage();
     displayKorzinaItems();
+});
+
+aboutBtn.addEventListener("click", function() {
+    pageCleaner();
+    aboutPage();
 });
 
 /*----basic----------------------------*/
