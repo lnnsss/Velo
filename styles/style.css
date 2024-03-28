@@ -448,6 +448,7 @@ body {
     line-height: 150%;
 }
 
+
 /*----media---------------------------------*/
 
 @media (max-width: 1210px) {
@@ -692,6 +693,7 @@ body.nightTheme .addNewAlbumBtn:hover {
 body.nightTheme .buyFooter {
     background-color: var(--secondBlack);
     border: 1px solid var(--grey);
+    border-bottom: none;
 }
 body.nightTheme .buyFooter_btn {
     background-color: var(--red);

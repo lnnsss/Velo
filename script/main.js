@@ -32,10 +32,10 @@ let tovarList = [
         img: "testDrive"
     },
     {
-        title: "Free Rio 2",
-        description: "OG Buda",
+        title: "PHYSICAL PAIN",
+        description: "LOVV66",
         price: 25,
-        img: "freeRio2"
+        img: "physicalPain"
     },
     {
         title: "KRISTINA",
@@ -50,10 +50,10 @@ let tovarList = [
         img: "wildEast"
     },
     {
-        title: "All Babies Fly",
-        description: "LILDRUGHILL",
+        title: "Sosa Muzik",
+        description: "Платина",
         price: 30,
-        img: "allBabiesFly"
+        img: "sosaMuzik"
     },
     {
         title: "Tsukuyomi Dream",
@@ -62,10 +62,10 @@ let tovarList = [
         img: "tsukuyomiDream"
     },
     {
-        title: "rEVOLVE",
+        title: "All Babies Fly",
         description: "LILDRUGHILL",
         price: 30,
-        img: "revolve"
+        img: "allBabiesFly"
     },
     {
         title: "Swag Season 2",
@@ -86,16 +86,16 @@ let tovarList = [
         img: "philarmonia"
     },
     {
-        title: "QWERTY LANG",
-        description: "Boulevard Depo",
+        title: "AA LANGUAGE",
+        description: "aarne",
         price: 50,
-        img: "qwertyLang"
+        img: "aaLanguage"
     },
     {
-        title: "PHREQUENCY",
-        description: "PHARAOH",
+        title: "PLAYERS CLUB 2",
+        description: "OBLADAET",
         price: 30,
-        img: "phrequency"
+        img: "playersClub2"
     }
 ];
 
@@ -220,7 +220,6 @@ function addNewAlbum() {
 
     console.log("dfgdg");
     tovarList.push(newAlbum);
-    localStorage.setItem('tovar', JSON.stringify(tovarList));
     pageCleaner();
     tovarsPage();
     displayTovars();
