@@ -21,7 +21,7 @@ let itogoPriceCounter = 0;
 
 /*----tovarList----------------------------*/
 
-const tovarList = [
+let tovarList = [
     {
         title: "test drive: archive",
         description: "LILDRUGHILL",
@@ -98,7 +98,7 @@ const tovarList = [
 
 /*----korzinaList----------------------------*/
 
-const korzinaList = [];
+let korzinaList = [];
 
 /*----func----pageCleaner------------------------*/
 
@@ -177,9 +177,9 @@ function addNewAlbum() {
     if (!albumTitle.value || !albumDescription.value || !albumPrice.value) {
         alert("Все поля должны быть заполнены!");
         return;
-    }
-
-    /*----проверка--поля--цена------------------------*/
+    };
+    
+    /*----редактирование--поля--цена------------------------*/
     if (Number(albumPrice.value) + 0 != Number(albumPrice.value)) {
         alert(`Поле "цена" должно содержать числовое значение!`)
         return;    
@@ -195,7 +195,7 @@ function addNewAlbum() {
     let newAlbum = {
         title: albumTitle.value,
         description: albumDescription.value,
-        price: albumPrice.value,
+        price: parseInt(albumPrice.value),
         img: "defaultVinyl"
     };
 
@@ -283,13 +283,26 @@ function delFromKorzina() {
     korzinaCounter.innerHTML = korzinaList.length;
 };
 
+/*----func----clearKorzina------------------------*/
+
+function clearKorzina() {
+    itogoPriceCounter = 0;
+    korzinaList = [];
+    korzinaPage();
+    displayKorzinaItems();
+    korzinaCounter.innerHTML = korzinaList.length;
+};
+
 /*----func----korzinaPage------------------------*/
 
 function korzinaPage() {
     mainContent.innerHTML = `
     <div class="pa1">
         <div class="pa1_container">
-            <h2 class="tittle leftTxt">Корзина</h2>
+            <div class="korzinaHeader">
+                <h2 class="tittle">Корзина</h2>
+                <span id="clearKorzina" onclick="clearKorzina()">Очистить корзину</span>
+            </div>
             <div class="korzina">
             </div>
             <div class="buyFooter _container">
@@ -334,6 +347,7 @@ glavnayaBtn.addEventListener("click", function() {
 });
 
 addBtn.addEventListener("click", function() {
+    pageCleaner();
     addPage();
 });
 

@@ -181,7 +181,6 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 .tovar {
@@ -244,8 +243,9 @@ body {
     transition: 0.5s;
 }
 .tovar_btn:active {
-    filter: brightness(80%);
-    transition: 0s;
+    background-color: var(--red);
+    border: var(--red);
+    transition: 0.1s;
 }
 
 /*----addPage---------------------------------*/
@@ -308,6 +308,19 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0 0 100px 0;
+}
+.korzinaHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+}
+#clearKorzina {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--grey);
 }
 .korzinaItem {
     margin: 10px 0;
