@@ -9,15 +9,18 @@ $(document).ready(function() {
 
 /*----variables----------------------------*/
 
-const mainContent = document.getElementById("main_container"),
+const body = document.querySelector("body"),
+    mainContent = document.getElementById("main_container"),
     logoBtn = document.getElementById("logoBtn"),
     glavnayaBtn = document.getElementById("glavnayaBtn"),
     addBtn = document.getElementById("addBtn"),
     korzinaBtn = document.getElementById("korzinaBtn"),
     aboutBtn = document.getElementById("aboutBtn"),
+    themeBtn = document.getElementById("themeBtn"),
     korzinaCounter = document.querySelector(".korzinaCounter");
 
-let itogoPriceCounter = 0;
+let itogoPriceCounter = 0,
+    themeImg = document.getElementById("themeImg");
 
 /*----tovarList----------------------------*/
 
@@ -99,6 +102,22 @@ let tovarList = [
 /*----korzinaList----------------------------*/
 
 let korzinaList = [];
+
+/*----light--theme--------------------------*/
+
+themeImg.src  = "../images/dayIcon.png";
+
+/*----func----theme------------------------*/
+
+function theme() {
+    let actualTheme = /[^/]*$/.exec(themeImg.src)[0];
+    if (actualTheme == "dayIcon.png") {
+        themeImg.src = "../images/nightIcon.png";
+    } else {
+        themeImg.src = "../images/dayIcon.png";
+    };
+    body.classList.toggle("nightTheme");
+};
 
 /*----func----pageCleaner------------------------*/
 
@@ -360,6 +379,10 @@ korzinaBtn.addEventListener("click", function() {
 aboutBtn.addEventListener("click", function() {
     pageCleaner();
     aboutPage();
+});
+
+themeBtn.addEventListener("click", function() {
+    theme();
 });
 
 /*----basic----------------------------*/

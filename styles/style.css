@@ -8,6 +8,8 @@
     --maxWidth: 1240px;
     --mainFont: "Montserrat", sans-serif;
     --black: #000000;
+    --secondBlack: #0f000e;
+    --thirdBlack: #170016;
     --grey: #cecece;
     --secondGrey: #909090;
     --white: #FFFFFF;
@@ -144,6 +146,15 @@ body {
     font-weight: 700;
     right: -10px;
     top: -10px;
+}
+#themeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#themeImg {
+    width: 18px;
+    height: 18px;
 }
 
 /*----pa1---------------------------------*/
@@ -439,6 +450,12 @@ body {
 
 /*----media---------------------------------*/
 
+@media (max-width: 1210px) {
+    .tovars {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 1024px) {
     .korzinaItem {
         margin: 10px 0;
@@ -624,4 +641,61 @@ body {
         font-size: 16px;
         font-weight: 500;
     }
+}
+
+/*----nightTheme---------------------------------*/
+
+/*----nightTheme--tovars-------------------------------*/
+body.nightTheme {
+    color: var(--white);
+    background-color: var(--secondBlack);
+}
+body.nightTheme .tovar {
+    border: 1px solid var(--secondGrey);
+}
+body.nightTheme .tovar:hover {
+    background-color: var(--thirdBlack);
+    border: 1px solid var(--red);
+}
+body.nightTheme .tovar_image {
+    border: 1px solid var(--secondGrey);
+}
+body.nightTheme .tovar:hover .tovar_image {
+    border: 1px solid var(--red);
+}
+body.nightTheme .tovar_btn {
+    border: 1px solid var(--red);
+    background-color: var(--red);
+    color: var(--white);
+}
+body.nightTheme .tovar_btn:hover {
+    background-color: var(--secondRed);
+    border-color: var(--secondRed);
+}
+body.nightTheme .tovar_btn:active {
+    filter: brightness(80%);
+    transition: 0.1s;
+}
+
+/*----nightTheme--add-------------------------------*/
+body.nightTheme .addNewAlbumBtn {
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+body.nightTheme .addNewAlbumBtn:hover {
+    background-color: var(--red);
+    color: var(--white);
+    width: 80%;
+}
+
+/*----nightTheme--korzina-------------------------------*/
+body.nightTheme .buyFooter {
+    background-color: var(--secondBlack);
+    border: 1px solid var(--grey);
+}
+body.nightTheme .buyFooter_btn {
+    background-color: var(--red);
+}
+body.nightTheme #itogoPrice {
+    color: var(--white);
 }
