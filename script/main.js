@@ -105,16 +105,16 @@ let korzinaList = [];
 
 /*----light--theme--------------------------*/
 
-themeImg.src  = "../images/dayIcon.png";
+themeImg.src  = "images/dayIcon.png";
 
 /*----func----theme------------------------*/
 
 function theme() {
     let actualTheme = /[^/]*$/.exec(themeImg.src)[0];
     if (actualTheme == "dayIcon.png") {
-        themeImg.src = "../images/nightIcon.png";
+        themeImg.src = "images/nightIcon.png";
     } else {
-        themeImg.src = "../images/dayIcon.png";
+        themeImg.src = "images/dayIcon.png";
     };
     body.classList.toggle("nightTheme");
 };
