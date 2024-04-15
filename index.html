@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <title>Velo</title>
@@ -21,7 +22,9 @@
                             <li class="header_link" id="korzinaBtn">Корзина
                                 <div class="korzinaCounter"></div>
                             </li>
+                            <li class="header_link" id="reviewsBtn">Отзывы</li>
                             <li class="header_link" id="aboutBtn">О наc</li>
+                            <li class="header_link" id="logInBtn">Аккаунт</li>
                             <li class="header_link" id="themeBtn"><img src="" alt="theme" id="themeImg"></li>
                         </ul>
                     </nav>
@@ -29,12 +32,25 @@
             </div>
         </header>
         <main class="main" id="main">
-            <div class="_container main_container" id="main_container">
-                
-            </div>
+            <div class="_container main_container" id="main_container"></div>
         </main>
+        <footer class="footer">
+            <div class="_container footer_container">
+                <a class="footer_logo" id="logoBtn">Velo</a>
+                <span>Все права защищены. &copy;</span>
+            </div>
+        </footer>
+    </div>
+    <div class="popup" id="popup">
+        <h5>Войти / Зарегистрироваться</h5>
+        <label for="login">Логин</label>
+        <input type="text" id="login">
+        <label for="password">Пароль</label>
+        <input type="text" id="password">
+        <button id="popupBtn">Войти</button>
     </div>
     <script src="script/jquery-3.7.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/main.js"></script>
 </body>
 </html>

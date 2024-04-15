@@ -10,13 +10,18 @@ $(document).ready(function() {
 /*----variables----------------------------*/
 
 const body = document.querySelector("body"),
+    wrapper = document.querySelector(".wrapper"),
     mainContent = document.getElementById("main_container"),
     logoBtn = document.getElementById("logoBtn"),
     glavnayaBtn = document.getElementById("glavnayaBtn"),
     addBtn = document.getElementById("addBtn"),
     korzinaBtn = document.getElementById("korzinaBtn"),
+    reviewsBtn = document.getElementById("reviewsBtn"),
     aboutBtn = document.getElementById("aboutBtn"),
+    logInBtn = document.getElementById("logInBtn"),
     themeBtn = document.getElementById("themeBtn"),
+    popup = document.getElementById("popup"),
+    popupBtn = document.getElementById("popupBtn"),
     korzinaCounter = document.querySelector(".korzinaCounter");
 
 let itogoPriceCounter = 0,
@@ -103,6 +108,41 @@ let tovarList = [
 
 let korzinaList = [];
 
+/*----rewiesList----------------------------*/
+
+let reviewsList = [
+    {
+        name: "Тимур",
+        message: "Спасибо за товар! Все качественно! Сначала думал это скам, но заказал. Не разочарован!",
+        img: "r1"
+    },
+    {
+        name: "Роберт",
+        message: "Ну..",
+        img: "r2"
+    },
+    {
+        name: "Аня",
+        message: "Большое спасибо! Наконецто могу послушать Анну Асти на виниле! Лучший подарок на день рождения!",
+        img: "r3"
+    },
+    {
+        name: "Антон",
+        message: "Подарили отцу Басту на виниле. Рад! 5 звезд, буду заказывать еще!",
+        img: "r4"
+    },
+    {
+        name: "Егор",
+        message: "Плюс один диск в коллецию, класс!",
+        img: "r5"
+    },
+    {
+        name: "Айнур",
+        message: "Товар пришел целым и не вредимым. Респект!",
+        img: "r6"
+    }
+];
+
 /*----light--theme--------------------------*/
 
 themeImg.src  = "images/dayIcon.png";
@@ -173,7 +213,7 @@ function displayTovars() {
     tovarList.forEach(function(item, i) {
         displayTovar = `
         <div class="tovar" id="item_${i}">
-            <img src="images/${item.img}.jfif" alt="tovar" class="tovar_image">
+            <img src="images/covers/${item.img}.jfif" alt="tovar" class="tovar_image">
             <h4 class="tovar_title">${item.title}</h4>
             <span class="tovar_description">${item.description}</span>
             <span class="tovar_price">${item.price}$</span>
@@ -268,7 +308,7 @@ function displayKorzinaItems() {
             displayKorzinaItem = `
             <div class="korzinaItem">
                 <div class="korzina_tovar_image_div">
-                    <img src="images/${item.img}.jfif" alt="tovar" class="korzina_tovar_image">
+                    <img src="images/covers/${item.img}.jfif" alt="tovar" class="korzina_tovar_image">
                 </div>
                 <h3 class="korzina_tovar_title">${item.title}</h3>
                 <h4 class="korzina_tovar_description">${item.description}</h4>
@@ -337,6 +377,57 @@ function korzinaPage() {
     `;
 };
 
+/*----func----reviewsPage------------------------*/
+
+function reviewsPage() {
+
+    mainContent.innerHTML = `
+    <div class="pa1">
+        <div class="pa1_container">
+            <h2 class="tittle leftTxt">Отзывы</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    /*----swiper-js---------------------------*/
+    let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        freeMode: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+};
+
+/*----func----displayReviews------------------------*/
+
+function displayReviews() {
+    let displayReview = '';
+    const reviews = document.querySelector(".swiper-wrapper");
+
+    if (reviewsList.length === 0) {
+        document.getElementsByClassName("pa1_container").innerHTML += ``;
+    };
+    reviewsList.forEach(function(review, i) {
+        displayReview = `
+        <div class="swiper-slide review" id="review_${i}">
+            <img src="images/reviews/${review.img}") class="review_image">
+            <h5 class="review_autor">${review.name}</h5>
+            <p class="review_message">${review.message}</p>
+        </div>
+        `;
+
+        reviews.innerHTML += displayReview;
+    });
+};
+
 /*----func----aboutPage------------------------*/
 
 function aboutPage() {
@@ -348,6 +439,24 @@ function aboutPage() {
         </div>
     </div>
     `;
+};
+
+/*----func----logInMenu------------------------*/
+
+function logInMenu() {
+    wrapper.classList.add("lock");
+    popup.classList.add("active");
+};
+
+/*----func----logIn------------------------*/
+
+function logIn() {
+    let login = document.getElementById("login"),
+        password = document.getElementById("password");
+    login.value = "";
+    password.value = "";
+    wrapper.classList.remove("lock");
+    popup.classList.toggle("active");
 };
 
 /*----btnsListen----------------------------*/
@@ -375,10 +484,22 @@ korzinaBtn.addEventListener("click", function() {
     displayKorzinaItems();
 });
 
+reviewsBtn.addEventListener("click", function() {
+    reviewsPage();
+    displayReviews();
+});
+
 aboutBtn.addEventListener("click", function() {
     pageCleaner();
     aboutPage();
 });
+
+logInBtn.addEventListener("click", function() {
+    logInMenu();
+});
+popupBtn.addEventListener("click", function() {
+    logIn();
+})
 
 themeBtn.addEventListener("click", function() {
     theme();
