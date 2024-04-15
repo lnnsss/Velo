@@ -453,10 +453,36 @@ function logInMenu() {
 function logIn() {
     let login = document.getElementById("login"),
         password = document.getElementById("password");
-    login.value = "";
-    password.value = "";
-    wrapper.classList.remove("lock");
-    popup.classList.toggle("active");
+
+    /*----сброс--------------------*/
+    function reset() {
+        login.value = "";
+        password.value = "";
+        wrapper.classList.remove("lock");
+        popup.classList.toggle("active");
+    };
+
+    /*----валидация--------------------*/
+    if (Boolean(login.value) == false || Boolean(password.value) == false ) {
+        alert("Все поля должны быть заполнены.");
+        reset();
+        return;
+    }; 
+    if (login.value.length < 6) {
+        alert("Логин должен состаять как минимум из 6 символов.");
+        reset();
+        return;
+    }; 
+    if (password.value.length < 8) {
+        alert("Пароль должен состаять как минимум из 8 символов.");
+        reset();
+        return;
+    }; 
+    if (Boolean(login.value) && Boolean(password.value)) {
+        alert(`${login.value}, добро пожаловать!`);
+        reset();
+        return;
+    }; 
 };
 
 /*----btnsListen----------------------------*/
