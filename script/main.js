@@ -19,6 +19,7 @@ const body = document.querySelector("body"),
     reviewsBtn = document.getElementById("reviewsBtn"),
     aboutBtn = document.getElementById("aboutBtn"),
     logInBtn = document.getElementById("logInBtn"),
+    logInName = document.getElementById("logInName"),
     themeBtn = document.getElementById("themeBtn"),
     popup = document.getElementById("popup"),
     popupBtn = document.getElementById("popupBtn"),
@@ -369,7 +370,7 @@ function korzinaPage() {
                     <span id="itogoPrice">${itogoPriceCounter}$</span>
                 </div>
                 <div class="buyFooter_right">
-                    <button class="buyFooter_btn">Купить</button>                
+                    <button class="buyFooter_btn id="buyBtn">Купить</button>                
                 </div>
             </div>      
         </div>
@@ -480,9 +481,19 @@ function logIn() {
     }; 
     if (Boolean(login.value) && Boolean(password.value)) {
         alert(`${login.value}, добро пожаловать!`);
+        logInName.innerHTML = login.value;
+        logInName.classList.add("active");
+        logInBtn.classList.add("hidden");
         reset();
         return;
     }; 
+};
+
+/*----func----logIn------------------------*/
+
+function logOut() {
+    logInName.classList.remove("active");
+    logInBtn.classList.remove("hidden");
 };
 
 /*----btnsListen----------------------------*/
@@ -523,13 +534,18 @@ aboutBtn.addEventListener("click", function() {
 logInBtn.addEventListener("click", function() {
     logInMenu();
 });
+
 popupBtn.addEventListener("click", function() {
     logIn();
-})
+});
 
 themeBtn.addEventListener("click", function() {
     theme();
 });
+
+logInName.addEventListener("click", function() {
+    logOut();
+})
 
 /*----basic----------------------------*/
 

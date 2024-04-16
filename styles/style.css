@@ -56,6 +56,7 @@ body {
     filter: blur(2px);
     height: 100vh;
     overflow-y: hidden;
+    user-select: none;
 }
 .main {
     padding: 120px 0 0 0;
@@ -153,6 +154,23 @@ body {
     right: -10px;
     top: -10px;
 }
+#logInName {
+    display: none;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#logInName.active {
+    display: block;
+    position: relative;
+}
+#logOutBtn {
+    display: none;
+}
+#logInBtn.hidden {
+    display: none
+}
 #themeBtn {
     display: flex;
     align-items: center;
@@ -225,11 +243,17 @@ body {
 .tovar_title {
     margin: 10px 0 0 0;
     font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .tovar_description {
     margin: 10px 0 0 0;
     font-size: 14px;    
     color: var(--grey);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .tovar_price {
     margin: 10px 0 10px 0;
@@ -446,6 +470,21 @@ body {
     transition: 0.1s;   
 }
 
+/*----buyPopup---------------------------------*/
+.buyPopup {
+    display: none;
+}
+.buyPopup.active {
+    display: flex;
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: var(--black);
+    left: calc(50% - 200px);
+    top: 400px;
+    z-index: 56;
+}
+
 /*----reviewsPage---------------------------------*/
 
 .swiper {
@@ -465,6 +504,7 @@ body {
     border: 1px solid var(--grey);
     border-radius: 20px;
     padding: 15px;
+    margin: 0 30px 0 0;
 }
 .review:hover {
     border: 1px solid var(--red);
@@ -473,7 +513,7 @@ body {
 .review_image {
     user-select: none;
     height: 300px;
-    width: 353px;
+    width: 100%;
     margin: 0 auto;
     border-radius: 20px;
     border: 1px solid var(--grey);
@@ -508,17 +548,24 @@ body {
 
 .footer {
     margin: 40px 0 0 0;
-    height: 60px;
+    height: 70px;
     width: 100%;
     background-color: var(--red);
     z-index: 65;
 }
 .footer_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.footer_top, .footer_bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
 }
+.footer_top { padding-top: 10px; }
+.footer_bottom { padding-top: 50px; }
 .footer_container span {
     font-size: 14px;
     color: var(--white);
@@ -528,6 +575,15 @@ body {
     font-size: 20px;
     font-weight: 600;
     color: var(--white);
+}
+.socials {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.soc {
+    width: 24px;
+    height: 24px;
 }
 
 /*----popup---------------------------------*/
