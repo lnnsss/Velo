@@ -444,6 +444,8 @@ function reviewsPage() {
 
   /*----swiper-js---------------------------*/
   let swiper = new Swiper(".mySwiper", {
+    direction: 'horizontal',
+    loop: true,
     slidesPerView: 3,
     spaceBetween: 30,
     freeMode: true,
