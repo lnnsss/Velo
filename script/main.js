@@ -460,7 +460,6 @@ function reviewsPage() {
         spaceBetween: 30,
       },
     },
-    direction: "vertical",
     IOSEdgeSwipeDetection: true,
     onTouchStart: function () {
       return false;
