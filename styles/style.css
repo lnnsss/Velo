@@ -171,6 +171,10 @@ body {
 #logInBtn.hidden {
     display: none
 }
+#logOut {
+    display: none;
+}
+
 #themeBtn {
     display: flex;
     align-items: center;
@@ -565,7 +569,10 @@ body {
     height: 100%;
 }
 .footer_top { padding-top: 10px; }
-.footer_bottom { padding-top: 50px; }
+.footer_bottom {
+    padding-top: 3px;
+    color: white;
+}
 .footer_container span {
     font-size: 14px;
     color: var(--white);
