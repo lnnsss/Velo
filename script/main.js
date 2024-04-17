@@ -13,7 +13,7 @@ const body = document.querySelector("body"),
     wrapper = document.querySelector(".wrapper"),
     mainContent = document.getElementById("main_container"),
     logoBtn = document.getElementById("logoBtn"),
-    glavnayaBtn = document.getElementById("glavnayaBtn"),
+    catalogBtn = document.getElementById("catalogBtn"),
     addBtn = document.getElementById("addBtn"),
     korzinaBtn = document.getElementById("korzinaBtn"),
     reviewsBtn = document.getElementById("reviewsBtn"),
@@ -21,12 +21,17 @@ const body = document.querySelector("body"),
     logInBtn = document.getElementById("logInBtn"),
     logInName = document.getElementById("logInName"),
     themeBtn = document.getElementById("themeBtn"),
-    popup = document.getElementById("popup"),
-    popupBtn = document.getElementById("popupBtn"),
+    logInPopup = document.getElementById("logInPopup"),
+    logInPopupBtn = document.getElementById("logInPopupBtn"),
+    logInPopupBackBtn = document.getElementById("logInPopupBackBtn"),
+    logOutPopup = document.getElementById("logOutPopup"),
+    logOutPopupBtn = document.getElementById("logOutPopupBtn"),
+    logOutPopupBackBtn = document.getElementById("logOutPopupBackBtn"),
     korzinaCounter = document.querySelector(".korzinaCounter");
 
 let itogoPriceCounter = 0,
-    themeImg = document.getElementById("themeImg");
+    themeImg = document.getElementById("themeImg"),
+    userName = document.getElementById("userName");
 
 /*----tovarList----------------------------*/
 
@@ -186,14 +191,56 @@ function addToKorzina() {
     });
 }
 
-/*----func----tovarsPage------------------------*/
+/*----func----mainPage------------------------*/
 
-function tovarsPage() {
+function mainPage() {
     mainContent.innerHTML = `
     <div class="pa1">
         <div class="pa1_container">
             <h1 class="mainTittle">Velo</h1>
             <span class="podTittle">Cайт по продаже виниловых пластинок лучших артистов страны</span>
+        </div>
+    </div>
+    <div class="pa2">
+        <div class="_container pa2_container">
+            <h3 class="miniTittle">Добро пожаловать в мир винила!</h3>
+            <p class="paragraph">Добро пожаловать на наш сайт, посвященный удивительному миру виниловых пластинок! Мы - ваш надежный партнер в поиске и покупке качественных и коллекционных виниловых записей. Здесь вы найдете широкий ассортимент музыкальных жемчужин различных жанров, от классики до современных хитов.</p>
+            <h3 class="miniTittle">Откройте для себя новые звуки</h3>
+            <p class="paragraph">Погрузитесь в атмосферу настоящего звука с виниловыми пластинками! Наслаждайтесь теплым и насыщенным звучанием, которое придает музыке особую глубину и теплоту. Наша коллекция включает в себя как классические альбомы легендарных исполнителей, так и редкие издания, которые станут украшением любой музыкальной коллекции.</p>
+            <h3 class="miniTittle">Покупайте с уверенностью</h3>
+            <p class="paragraph">Мы гордимся тем, что предлагаем только высококачественные виниловые пластинки, прошедшие тщательный отбор и проверку. У нас вы можете быть уверены в подлинности каждой пластинки и ее отличном звучании. Наслаждайтесь музыкой в ее лучшем виде с нашими виниловыми записями и добавьте неповторимый шарм в свою аудио-коллекцию!</p>
+        </div>
+    </div>
+    <div class="pa3">
+        <div class="pa3_container">
+        </div>
+    </div>
+    <div class="pa4">
+        <div class="_container pa4_container">
+            <h3>Почему выбирают нас?</h3>
+            <ul class="pa4_ul">
+                <li class="pa4_li"><span class="pa4_li_tittle">Широкий выбор: </span>Наш магазин предлагает широкий ассортимент виниловых пластинок различных жанров, от классики до современных хитов. Мы постоянно пополняем свой каталог новыми релизами и редкими изданиями, чтобы вы могли найти именно то, что искали.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Качество и подлинность: </span>Мы уделяем особое внимание качеству и подлинности каждой пластинки. Каждая пластинка проходит тщательный отбор и проверку, чтобы гарантировать нашим клиентам только лучшее.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Лучшие цены: </span>Наш магазин предлагает конкурентоспособные цены на все виниловые пластинки, чтобы вы могли приобрести желаемый альбом по доступной цене.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Быстрая доставка: </span>Мы гарантируем быструю и надежную доставку виниловых пластинок в любую точку страны. Вы можете быть уверены, что ваша заказ придет вовремя и в идеальном состоянии.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Клиентская поддержка: </span>Наш магазин известен своей отличной клиентской поддержке. Если у вас возникнут какие-либо вопросы или проблемы, наши специалисты всегда готовы помочь и ответить на все ваши вопросы.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Благотворительность: </span>При покупке виниловых пластинок в нашем магазине, вы можете принимать участие в благотворительных акциях и помогать тем, кто нуждается в помощи. Мы уверены, что музыка может объединить людей и делать мир лучше.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Комплексное обслуживание: </span>В нашем магазине вы можете не только купить виниловые пластинки, но и получить комплексное обслуживание по подбору и настройке музыкального оборудования. Наши специалисты помогут вам выбрать идеальный вариант на подарок или для коммерческого использования.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Наушники: </span>В комплекте с виниловыми пластинками могут поставляться наушники к инструменту, адаптер переменного тока, пюпитр. Производитель обязательно кладет руководство пользователя с инструкциями по подключению, использованию, устранению типовых неполадок.</li>
+                <li class="pa4_li"><span class="pa4_li_tittle">Эксклюзивные издания: </span>Наш магазин предлагает эксклюзивные грампластинки в подарок ценителям качественного винила и хорошей музыки. Вы можете быть уверены, что при покупке у нас, вы получите не только качественную пластинку, но и уникальный подарок.</li>
+            </ul>
+        </div>
+    </div>
+    `;
+};
+
+/*----func----catalogPage------------------------*/
+
+function catalogPage() {
+    mainContent.innerHTML = `
+    <div class="pa1">
+        <div class="_container pa1_container">
+            <h2 class="tittle leftTxt">Каталог</h2>
             <h2 class="tittle albumsTittle">Альбомы</h2>
             <div class="tovars">
             </div>
@@ -262,7 +309,7 @@ function addNewAlbum() {
     console.log("dfgdg");
     tovarList.push(newAlbum);
     pageCleaner();
-    tovarsPage();
+    catalogPage();
     displayTovars();
 };
 
@@ -271,7 +318,7 @@ function addNewAlbum() {
 function addPage() {
     mainContent.innerHTML = `
     <div class="pa1">
-        <div class="pa1_container">
+        <div class="_container pa1_container">
             <h2 class="tittle addTittle">Добавьте свой релиз!</h2>
             <form action="" class="addForm">
                 <div class="addForm_container">
@@ -357,7 +404,7 @@ function clearKorzina() {
 function korzinaPage() {
     mainContent.innerHTML = `
     <div class="pa1">
-        <div class="pa1_container">
+        <div class="_container pa1_container">
             <div class="korzinaHeader">
                 <h2 class="tittle">Корзина</h2>
                 <span id="clearKorzina" onclick="clearKorzina()">Очистить корзину</span>
@@ -384,7 +431,7 @@ function reviewsPage() {
 
     mainContent.innerHTML = `
     <div class="pa1">
-        <div class="pa1_container">
+        <div class="_container pa1_container">
             <h2 class="tittle leftTxt">Отзывы</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -434,7 +481,7 @@ function displayReviews() {
 function aboutPage() {
     mainContent.innerHTML = `
     <div class="pa1">
-        <div class="pa1_container">
+        <div class="_container pa1_container">
             <h2 class="tittle leftTxt">О нас</h2>
             <span class="aboutSpan">Ну и что я здесь должен был написать?<br>Я бедный студент...</span>
         </div>
@@ -446,7 +493,7 @@ function aboutPage() {
 
 function logInMenu() {
     wrapper.classList.add("lock");
-    popup.classList.add("active");
+    logInPopup.classList.add("active");
 };
 
 /*----func----logIn------------------------*/
@@ -460,7 +507,7 @@ function logIn() {
         login.value = "";
         password.value = "";
         wrapper.classList.remove("lock");
-        popup.classList.toggle("active");
+        logInPopup.classList.toggle("active");
     };
 
     /*----валидация--------------------*/
@@ -482,6 +529,7 @@ function logIn() {
     if (Boolean(login.value) && Boolean(password.value)) {
         alert(`${login.value}, добро пожаловать!`);
         logInName.innerHTML = login.value;
+        userName.innerHTML = login.value;
         logInName.classList.add("active");
         logInBtn.classList.add("hidden");
         reset();
@@ -489,24 +537,46 @@ function logIn() {
     }; 
 };
 
-/*----func----logIn------------------------*/
+/*----func----logOutMenu------------------------*/
+
+function logOutMenu() {
+    logOutPopup.classList.add("active");
+    wrapper.classList.add("lock");
+};
+
+/*----func----logOut------------------------*/
 
 function logOut() {
     logInName.classList.remove("active");
     logInBtn.classList.remove("hidden");
+    logOutPopup.classList.remove("active");
+    wrapper.classList.remove("lock");
+};
+
+/*----func----logInBack------------------------*/
+
+function logInBack() {
+    wrapper.classList.remove("lock");
+    logInPopup.classList.remove("active");
+};
+
+/*----func----logOutBack------------------------*/
+
+function logOutBack() {
+    logOutPopup.classList.remove("active");
+    wrapper.classList.remove("lock");
 };
 
 /*----btnsListen----------------------------*/
 
 logoBtn.addEventListener("click", function() {
     pageCleaner();
-    tovarsPage();
-    displayTovars();
+    mainPage();
 });
 
-glavnayaBtn.addEventListener("click", function() {
+catalogBtn.addEventListener("click", function() {
     pageCleaner();
-    tovarsPage();
+    catalogPage();
     displayTovars();
 });
 
@@ -535,7 +605,7 @@ logInBtn.addEventListener("click", function() {
     logInMenu();
 });
 
-popupBtn.addEventListener("click", function() {
+logInPopupBtn.addEventListener("click", function() {
     logIn();
 });
 
@@ -544,10 +614,22 @@ themeBtn.addEventListener("click", function() {
 });
 
 logInName.addEventListener("click", function() {
+    logOutMenu();
+});
+
+logOutPopupBtn.addEventListener("click", function() {
     logOut();
-})
+});
+
+logInPopupBackBtn.addEventListener("click", function() {
+    logInBack();
+});
+
+logOutPopupBackBtn.addEventListener("click", function() {
+    logOutBack();
+});
 
 /*----basic----------------------------*/
 
-tovarsPage();
+mainPage();
 displayTovars();

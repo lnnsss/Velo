@@ -17,16 +17,15 @@
                     <div class="header_burger"><span></span></div>
                     <nav class="header_menu">
                         <ul class="header_list">
-                            <li class="header_link" id="glavnayaBtn">Главная</li>
-                            <li class="header_link" id="addBtn">Добавить</li>
+                            <li class="header_link" id="catalogBtn">Каталог</li>
                             <li class="header_link" id="korzinaBtn">Корзина
                                 <div class="korzinaCounter"></div>
                             </li>
                             <li class="header_link" id="reviewsBtn">Отзывы</li>
                             <li class="header_link" id="aboutBtn">О наc</li>
+                            <li class="header_link" id="addBtn">Добавить</li>
                             <li class="header_link" id="logInBtn">Аккаунт</li>
-                            <li class="header_link" id="logInName" title="Выйти">
-                            </li>
+                            <li class="header_link" id="logInName" title="Выйти"></li>
                             <li class="header_link" id="themeBtn"><img src="" alt="theme" id="themeImg"></li>
                         </ul>
                     </nav>
@@ -34,15 +33,16 @@
             </div>
         </header>
         <main class="main" id="main">
-            <div class="_container main_container" id="main_container"></div>
+            <div class="main_container" id="main_container">
+            </div>
         </main>
         <footer class="footer">
             <div class="_container footer_container">
                 <div class="footer_top">
                     <a class="footer_logo" id="logoBtn">Velo</a>
                     <div class="socials">
-                        <a target="_blank" href="https://vk.com/l1lines"><img src="images/socials/github.png" alt="github" class="soc"></a>
-                        <a target="_blank" href="https://github.com/@lnsplayer"><img src="images/socials/vk.png" alt="vk" class="soc"></a>
+                        <a target="_blank" href="https://github.com/lnsplayer"><img src="images/socials/github.png" alt="github" class="soc"></a>
+                        <a target="_blank" href="https://vk.com/l1lines"><img src="images/socials/vk.png" alt="vk" class="soc"></a>
                         <a target="_blank" href="https://www.instagram.com/@l1lines"><img src="images/socials/inst.png" alt="inst" class="soc"></a>
                         <a target="_blank" href="https://t.me/l1lines"><img src="images/socials/tg.png" alt="tg" class="soc"></a>
                     </div>
@@ -54,13 +54,23 @@
             </div>
         </footer>
     </div>
-    <div class="popup" id="popup">
+    <div class="logInPopup" id="logInPopup">
+        <div class="logOutPopupBackBtn BackBtn" id="logInPopupBackBtn">&times;</div>
         <h5>Войти</h5>
         <label for="login">Логин</label>
         <input type="text" id="login" placeholder="hacker777">
         <label for="password">Пароль</label>
         <input type="text" id="password" placeholder="qwerty123">
-        <button id="popupBtn">Войти</button>
+        <button id="logInPopupBtn">Войти</button>
+    </div>
+    <div class="logOutPopup" id="logOutPopup">
+        <div class="logOutPopupBackBtn BackBtn" id="logOutPopupBackBtn">&times;</div>
+        <h5>Аккаунт</h5>
+        <span class="userData userName" id="userName"></span>
+        <span class="balance">Баланс</span>
+        <span class="userData balanceMoney">0$</span>
+        <button id="balanceBtn">Пополнить</button>
+        <button id="logOutPopupBtn">Выйти</button>
     </div>
     <script defer src="script/jquery-3.7.0.slim.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
