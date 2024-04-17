@@ -446,9 +446,18 @@ function reviewsPage() {
     slidesPerView: 3,
     spaceBetween: 30,
     freeMode: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+    breakpoints: {
+      220: {
+        slidesPerView: 1,
+      },
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      720: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
     },
   });
 }
@@ -456,10 +465,10 @@ function reviewsPage() {
 /*----func----displayReviews------------------------*/
 
 function displayReviews() {
-    let displayReview = "";
-    const reviews = document.querySelector(".swiper-wrapper");
+  let displayReview = "";
+  const reviews = document.querySelector(".swiper-wrapper");
 
-    reviewsList.forEach(function (review, i) {
+  reviewsList.forEach(function (review, i) {
     displayReview = `
         <div class="swiper-slide review" id="review_${i}">
             <img src="images/reviews/${review.img}") class="review_image">
@@ -469,7 +478,7 @@ function displayReviews() {
         `;
 
     reviews.innerHTML += displayReview;
-    });
+  });
 }
 
 /*----func----aboutPage------------------------*/
