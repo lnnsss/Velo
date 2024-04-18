@@ -873,7 +873,6 @@ body {
     }
     .mySwiper {
         padding: 40px 0 0 0;
-        height: 400px;
     }
     .review {
         height: 300px;
@@ -1000,8 +999,8 @@ body {
         margin: 0;
     }
     .korzinaCounter.active {
-        right: 35%;
         top: 5px;
+        left: 125px;
     }
     .addForm {
         width: 360px;

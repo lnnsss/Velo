@@ -436,7 +436,6 @@ function reviewsPage() {
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                 </div>
-                <div class="swiper-scrollbar"></div>
             </div>
         </div>
     </div>
@@ -444,7 +443,6 @@ function reviewsPage() {
 
   /*----swiper-js---------------------------*/
   let swiper = new Swiper(".mySwiper", {
-    direction: 'horizontal',
     loop: true,
     slidesPerView: 3,
     spaceBetween: 30,
@@ -462,13 +460,6 @@ function reviewsPage() {
         spaceBetween: 30,
       },
     },
-    IOSEdgeSwipeDetection: true,
-    onTouchStart: function () {
-      return false;
-    },
-    scrollbarDraggable: true,
-    scrollbar: ".swiper-scrollbar",
-    scrollbarHide: true,
   });
 }
 
