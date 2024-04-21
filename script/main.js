@@ -31,7 +31,8 @@ const body = document.querySelector("body"),
 
 let itogoPriceCounter = 0,
   themeImg = document.getElementById("themeImg"),
-  userName = document.getElementById("userName");
+  userName = document.getElementById("userName"),
+  mainFilter = 'filterAll';
 
 /*----tovarList----------------------------*/
 
@@ -39,74 +40,114 @@ let tovarList = [
   {
     title: "test drive: archive",
     description: "LILDRUGHILL",
-    price: 20,
+    price: 25,
     img: "testDrive",
+    lang: "ru"
   },
   {
     title: "PHYSICAL PAIN",
     description: "LOVV66",
-    price: 25,
+    price: 20,
     img: "physicalPain",
+    lang: "ru"
   },
   {
-    title: "KRISTINA",
-    description: "LIL KRYSTALLL",
-    price: 30,
-    img: "kristina",
+    title: "DAMN.",
+    description: "Kendrick Lamar",
+    price: 50,
+    img: "damn",
+    lang: "en"
   },
   {
     title: "WILD EA$T",
     description: "SALUKI",
     price: 50,
     img: "wildEast",
+    lang: "ru"
+  },
+  {
+    title: "Life of a DON",
+    description: "Don Toliver",
+    price: 30,
+    img: "lifeOfADon",
+    lang: "en"
+  },
+  {
+    title: "KRISTINA",
+    description: "LIL KRYSTALLL",
+    price: 30,
+    img: "kristina",
+    lang: "ru"
   },
   {
     title: "Sosa Muzik",
     description: "Платина",
     price: 30,
     img: "sosaMuzik",
+    lang: "ru"
   },
   {
-    title: "Tsukuyomi Dream",
-    description: "ROCKET",
-    price: 25,
-    img: "tsukuyomiDream",
+    title: "Certified Lover Boy",
+    description: "Drake",
+    price: 35,
+    img: "certifiedLoverBoy",
+    lang: "en"
   },
   {
     title: "All Babies Fly",
     description: "LILDRUGHILL",
     price: 30,
     img: "allBabiesFly",
+    lang: "ru"
   },
   {
-    title: "Swag Season 2",
+    title: "Tsukuyomi Dream",
     description: "ROCKET",
+    price: 20,
+    img: "tsukuyomiDream",
+    lang: "ru"
+  },
+  {
+    title: "Heroes & Villains",
+    description: "Metro Boomin",
     price: 50,
-    img: "swagSeason2",
+    img: "heroesAndVillains",
+    lang: "en"
   },
   {
     title: "glow",
     description: "LILDURGHILL",
-    price: 30,
+    price: 25,
     img: "glow",
+    lang: "ru"
   },
   {
     title: "PHILARMONIA",
     description: "PHARAOH",
     price: 50,
     img: "philarmonia",
+    lang: "ru"
+  },
+  {
+    title: "23",
+    description: "Central Cee",
+    price: 35,
+    img: "23",
+    lang: "en"
   },
   {
     title: "AA LANGUAGE",
     description: "aarne",
-    price: 50,
+    price: 40,
     img: "aaLanguage",
+    lang: "ru"
   },
   {
     title: "PLAYERS CLUB 2",
     description: "OBLADAET",
     price: 30,
     img: "playersClub2",
+    lang: "ru"
   },
 ];
 
@@ -244,12 +285,35 @@ function catalogPage() {
     <div class="pa1">
         <div class="_container pa1_container">
             <h2 class="tittle leftTxt">Каталог</h2>
-            <h2 class="tittle albumsTittle">Альбомы</h2>
+            <div class="catalog_header">
+                <h2 class="tittle leftTxt">Альбомы</h2>
+                <div class="filters" id="filters">
+                  <div class="filter" id="filterAll">All</div>
+                  <div class="filter" id="filterRu">Ru</div>
+                    <div class="filter" id="filterEn">En</div>
+                    <div class="filter" id="filterSmall">&lt; 25$</div>
+                    <div class="filter" id="filterBig">&gt; 25$</div>
+                </div>
+            </div>
             <div class="tovars">
             </div>
         </div>
     </div>
-    `;
+  `;
+  const filters = document.getElementById("filters");
+  filters.addEventListener("click", (e) => {
+    let clickedFilter = e.target.getAttribute("id");
+    if (clickedFilter == "filterAll" || clickedFilter == "filterRu" || clickedFilter == "filterEn" || clickedFilter == "filterSmall" || clickedFilter == "filterBig") {
+      mainFilter = clickedFilter;
+      document.getElementById("filterAll").classList.remove("active");
+      document.getElementById("filterRu").classList.remove("active");
+      document.getElementById("filterEn").classList.remove("active");
+      document.getElementById("filterSmall").classList.remove("active");
+      document.getElementById("filterBig").classList.remove("active");
+      document.getElementById(mainFilter).classList.add("active");
+      displayTovars();
+    }
+  })
 }
 
 /*----func----displayTovars------------------------*/
@@ -261,9 +325,10 @@ function displayTovars() {
   if (tovarList.length === 0) {
     document.getElementsByClassName("pa1_container").innerHTML += ``;
   }
+  tovars.innerHTML = "";
   tovarList.forEach(function (item, i) {
     displayTovar = `
-        <div class="tovar" id="item_${i}">
+        <div class="tovar ${item.lang}" id="item_${i}">
             <img src="images/covers/${item.img}.jfif" alt="tovar" class="tovar_image">
             <h4 class="tovar_title">${item.title}</h4>
             <span class="tovar_description">${item.description}</span>
@@ -271,8 +336,29 @@ function displayTovars() {
             <button class="tovar_btn" id="m_${i}" onclick="addToKorzina(event)">В корзину</button>
         </div>
         `;
-
-    tovars.innerHTML += displayTovar;
+    if (mainFilter == "filterAll") {
+      tovars.innerHTML += displayTovar;    
+    }
+    else if (mainFilter == "filterRu") {
+      if (item.lang == "ru") {
+        tovars.innerHTML += displayTovar; 
+      }
+    }
+    else if (mainFilter == "filterEn") {
+      if (item.lang == "en") {
+        tovars.innerHTML += displayTovar; 
+      }
+    }
+    else if (mainFilter == "filterSmall") {
+      if (item.price <= 25) {
+        tovars.innerHTML += displayTovar; 
+      }
+    }
+    else if (mainFilter == "filterBig") {
+      if (item.price > 25) {
+        tovars.innerHTML += displayTovar; 
+      }
+    }
   });
 }
 
@@ -281,7 +367,8 @@ function displayTovars() {
 function addNewAlbum() {
   const albumTitle = document.getElementById("albumTitle"),
     albumDescription = document.getElementById("albumDescription"),
-    albumPrice = document.getElementById("albumPrice");
+    albumPrice = document.getElementById("albumPrice"),
+    albumLang = document.querySelector('input[name="lang"]:checked');
 
   /*----проверка--на--заполненность--полей----------------------*/
   if (!albumTitle.value || !albumDescription.value || !albumPrice.value) {
@@ -306,6 +393,7 @@ function addNewAlbum() {
     description: albumDescription.value,
     price: parseInt(albumPrice.value),
     img: "defaultVinyl",
+    lang: albumLang.value
   };
 
   tovarList.push(newAlbum);
@@ -318,22 +406,35 @@ function addNewAlbum() {
 
 function addPage() {
   mainContent.innerHTML = `
-    <div class="pa1">
-        <div class="_container pa1_container">
-            <h2 class="tittle addTittle">Добавьте свой релиз!</h2>
-            <form action="" class="addForm">
-                <div class="addForm_container">
-                    <label for="albumTitle" class="addFormLabel">Название</label>
-                    <input type="text" id="albumTitle" class="addFormInput" placeholder="WILD EA$T">
-                    <label for="albumDescription" class="addFormLabel">Артист</label>
-                    <input type="text" id="albumDescription" class="addFormInput" placeholder="SALUKI">
-                    <label for="albumPrice" class="addFormLabel">Цена ($)</label>
-                    <input type="text" id="albumPrice" class="addFormInput" placeholder="50">
-                    <button class="addNewAlbumBtn" id="addNewAlbumBtn">Добавить</button>
-                </div>
-            </form>            
-        </div>
-    </div>
+  <div class="pa1">
+      <div class="_container pa1_container">
+          <h2 class="tittle addTittle">Добавьте свой релиз!</h2>
+          <form action="" class="addForm">
+              <div class="addForm_container">
+                  <label for="albumTitle" class="addFormLabel">Название</label>
+                  <input type="text" id="albumTitle" class="addFormInput" placeholder="WILD EA$T">
+                  <label for="albumDescription" class="addFormLabel">Артист</label>
+                  <input type="text" id="albumDescription" class="addFormInput" placeholder="SALUKI">
+                  <label for="albumPrice" class="addFormLabel">Цена ($)</label>
+                  <input type="text" id="albumPrice" class="addFormInput" placeholder="50">
+                  <div class="formLang">
+                      <span class="addFormLabel">Язык</span>
+                      <div class="langRadio">
+                          <label for="radioRu">
+                              <input type="radio" id="radioRu" name="lang" value="ru" checked />
+                              Ru
+                          </label>
+                          <label for="radioEn">
+                              <input type="radio" id="radioEn" name="lang" value="en" />
+                              En
+                          </label>
+                      </div>
+                  </div>
+                  <button class="addNewAlbumBtn" id="addNewAlbumBtn">Добавить</button>
+              </div>
+          </form>            
+      </div>
+  </div>
     `;
 
   const addNewAlbumBtn = document.getElementById("addNewAlbumBtn");

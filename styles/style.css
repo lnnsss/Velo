@@ -233,10 +233,6 @@ body {
     font-size: 24px;
     font-weight: 400;
 }
-.albumsTittle {
-    margin: 40px 0 0 0;
-    text-align: left;
-}
 
 /*----pa2---------------------------------*/
 
@@ -306,8 +302,42 @@ body {
     font-weight: 500;
 }
 
-/*----tovars---------------------------------*/
+/*----catalog---------------------------------*/
 
+.catalog_header {
+    margin: 40px 0 0 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 20px;
+    flex-wrap: wrap;
+}
+.filters {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.filter {
+    cursor: pointer;
+    user-select: none;
+    height: 30px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--grey);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.filter.active {
+    background-color: var(--red);
+    color: var(--white);
+}
+.filter:hover {
+    border: 1px solid var(--red);
+}
 .tovars {
     margin: 40px 0 0 0;
     width: 100%;
@@ -391,7 +421,7 @@ body {
 .addForm {
     margin: 40px auto 0 auto;
     width: 500px;
-    height: 460px;
+    height: 520px;
     border: 2px solid var(--grey);
     border-radius: 20px;
 }
@@ -435,6 +465,17 @@ body {
 .addFormLabel {
     font-size: 24px;
     text-align: left;
+}
+.formLang {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.formLang label {
+    font-size: 18px;
+    margin: 0 25px 0 5px;
 }
 
 /*----korzinaPage---------------------------------*/
@@ -1104,6 +1145,15 @@ body {
 }
 
 @media (max-width: 472px) {
+    .tovars {
+        margin-top: 100px;
+    }
+    .filters {
+        margin: 10px 0 0 0;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     .addForm {
         margin: 40px auto 0 auto;
         width: 280px;
@@ -1163,7 +1213,10 @@ body {
         align-items: center;
     }
     .footer_top { width: 30%;}
-    .footer_bottom { width: 70%;}
+    .footer_bottom {
+        width: 70%;
+        justify-content: end;
+    }
     .footer_bottom a {
         display: none;
     }
