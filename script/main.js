@@ -22,11 +22,14 @@ const body = document.querySelector("body"),
   logInName = document.getElementById("logInName"),
   themeBtn = document.getElementById("themeBtn"),
   logInPopup = document.getElementById("logInPopup"),
+  regPopupBtn = document.getElementById("regPopupBtn"),
   logInPopupBtn = document.getElementById("logInPopupBtn"),
   logInPopupBackBtn = document.getElementById("logInPopupBackBtn"),
   logOutPopup = document.getElementById("logOutPopup"),
   logOutPopupBtn = document.getElementById("logOutPopupBtn"),
   logOutPopupBackBtn = document.getElementById("logOutPopupBackBtn"),
+  regMode = document.querySelector(".regMode"),
+  logMode = document.querySelector(".logMode"),
   korzinaCounter = document.querySelector(".korzinaCounter");
 
 let itogoPriceCounter = 0,
@@ -193,6 +196,12 @@ let reviewsList = [
   },
 ];
 
+/*----rewiesList----------------------------*/
+
+let usersList = {
+  "l1lines": "qwerty123", 
+}
+
 /*----light--theme--------------------------*/
 
 themeImg.src = "images/dayIcon.png";
@@ -288,11 +297,11 @@ function catalogPage() {
             <div class="catalog_header">
                 <h2 class="tittle leftTxt">Альбомы</h2>
                 <div class="filters" id="filters">
-                  <div class="filter" id="filterAll">All</div>
+                  <div class="filter active" id="filterAll">All</div>
                   <div class="filter" id="filterRu">Ru</div>
                     <div class="filter" id="filterEn">En</div>
-                    <div class="filter" id="filterSmall">&lt; 25$</div>
-                    <div class="filter" id="filterBig">&gt; 25$</div>
+                    <div class="filter" id="filterSmall">до 25$</div>
+                    <div class="filter" id="filterBig">от 25$</div>
                 </div>
             </div>
             <div class="tovars">
@@ -632,9 +641,9 @@ function logInMenu() {
   logInPopup.classList.add("active");
 }
 
-/*----func----logIn------------------------*/
+/*----func----reg------------------------*/
 
-function logIn() {
+function reg() {
   let login = document.getElementById("login"),
     password = document.getElementById("password");
 
@@ -644,9 +653,14 @@ function logIn() {
     password.value = "";
     wrapper.classList.remove("lock");
     logInPopup.classList.toggle("active");
-  }
+  };
 
   /*----валидация--------------------*/
+  if (usersList[login.value] !== undefined) {
+    alert("Пользователь с таким логином уже зарегистрирован на сайте.");
+    reset();
+    return;
+  }
   if (Boolean(login.value) == false || Boolean(password.value) == false) {
     alert("Все поля должны быть заполнены.");
     reset();
@@ -663,6 +677,34 @@ function logIn() {
     return;
   }
   if (Boolean(login.value) && Boolean(password.value)) {
+    alert(`${login.value}, вы зарегистрированы!`);
+    usersList[login.value] = password.value;
+    console.log(usersList);
+    reset();
+    return;
+  }
+  
+}
+
+/*----func----logIn------------------------*/
+
+function logIn() {
+  let login = document.getElementById("login"),
+    password = document.getElementById("password");
+
+  /*----сброс--------------------*/
+  function reset() {
+    login.value = "";
+    password.value = "";
+    wrapper.classList.remove("lock");
+    logInPopup.classList.toggle("active");
+  };
+  if (usersList[login.value] !== undefined && usersList[login.value] !== password.value) {
+    alert(`Неверный пароль!`);
+    reset();
+    return;
+  };
+  if (usersList[login.value] !== undefined && usersList[login.value] == password.value) {
     alert(`${login.value}, добро пожаловать!`);
     logInName.innerHTML = login.value;
     userName.innerHTML = login.value;
@@ -670,7 +712,7 @@ function logIn() {
     logInBtn.classList.add("hidden");
     reset();
     return;
-  }
+  };
 }
 
 /*----func----logOutMenu------------------------*/
@@ -701,6 +743,24 @@ function logInBack() {
 function logOutBack() {
   logOutPopup.classList.remove("active");
   wrapper.classList.remove("lock");
+}
+
+/*----func----regModeActive------------------------*/
+
+function regModeActive() {
+  logMode.classList.remove("active");
+  regMode.classList.add("active");
+  logInPopupBtn.classList.add("hidden");
+  regPopupBtn.classList.remove("hidden");  
+}
+
+/*----func----logModeActive------------------------*/
+
+function logModeActive() {
+  regMode.classList.remove("active");
+  logMode.classList.add("active");
+  regPopupBtn.classList.add("hidden");
+  logInPopupBtn.classList.remove("hidden");
 }
 
 /*----btnsListen----------------------------*/
@@ -741,6 +801,10 @@ logInBtn.addEventListener("click", function () {
   logInMenu();
 });
 
+regPopupBtn.addEventListener("click", function () {
+  reg();
+});
+
 logInPopupBtn.addEventListener("click", function () {
   logIn();
 });
@@ -757,12 +821,20 @@ logOutPopupBtn.addEventListener("click", function () {
   logOut();
 });
 
+logOutPopupBackBtn.addEventListener("click", function () {
+  logOutBack();
+});
+
 logInPopupBackBtn.addEventListener("click", function () {
   logInBack();
 });
 
-logOutPopupBackBtn.addEventListener("click", function () {
-  logOutBack();
+regMode.addEventListener("click", function() {
+  regModeActive();
+});
+
+logMode.addEventListener("click", function() {
+  logModeActive();
 });
 
 /*----basic----------------------------*/

@@ -56,12 +56,16 @@
     </div>
     <div class="logInPopup" id="logInPopup">
         <div class="logOutPopupBackBtn BackBtn" id="logInPopupBackBtn">&times;</div>
-        <h5>Войти</h5>
+        <div class="logOrReg">
+            <h5 class="mode regMode active">Register</h5>
+            <h5 class="mode logMode">Log in</h5>
+        </div>
         <label for="login">Логин</label>
         <input type="text" id="login" placeholder="hacker777">
         <label for="password">Пароль</label>
         <input type="text" id="password" placeholder="qwerty123">
-        <button id="logInPopupBtn">Войти</button>
+        <button class="regPopupBtn" id="regPopupBtn">Зарегистрироваться</button>
+        <button class="logInPopupBtn hidden" id="logInPopupBtn">Войти</button>
     </div>
     <div class="logOutPopup" id="logOutPopup">
         <div class="logOutPopupBackBtn BackBtn" id="logOutPopupBackBtn">&times;</div>
