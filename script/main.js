@@ -200,7 +200,8 @@ let reviewsList = [
 
 let usersList = {
   "l1lines": "qwerty123", 
-}
+  "ronaldo777": "messiNoob"
+};
 
 /*----light--theme--------------------------*/
 
@@ -216,13 +217,13 @@ function theme() {
     themeImg.src = "images/dayIcon.png";
   }
   body.classList.toggle("nightTheme");
-}
+};
 
 /*----func----pageCleaner------------------------*/
 
 function pageCleaner() {
   mainContent.innerHTML = "";
-}
+};
 
 /*----func----addToKorzina------------------------*/
 
@@ -242,7 +243,7 @@ function addToKorzina() {
   korzinaList.forEach(function (res) {
     itogoPriceCounter += res.price;
   });
-}
+};
 
 /*----func----mainPage------------------------*/
 
@@ -285,7 +286,7 @@ function mainPage() {
         </div>
     </div>
     `;
-}
+};
 
 /*----func----catalogPage------------------------*/
 
@@ -323,7 +324,7 @@ function catalogPage() {
       displayTovars();
     }
   })
-}
+};
 
 /*----func----displayTovars------------------------*/
 
@@ -369,11 +370,11 @@ function displayTovars() {
       }
     }
   });
-}
+};
 
 /*----func----addNewAlbum------------------------*/
 
-function addNewAlbum() {
+function addNewAlbum() {  
   const albumTitle = document.getElementById("albumTitle"),
     albumDescription = document.getElementById("albumDescription"),
     albumPrice = document.getElementById("albumPrice"),
@@ -409,7 +410,7 @@ function addNewAlbum() {
   pageCleaner();
   catalogPage();
   displayTovars();
-}
+};
 
 /*----func----addPage------------------------*/
 
@@ -450,7 +451,7 @@ function addPage() {
   addNewAlbumBtn.addEventListener("click", function () {
     addNewAlbum();
   });
-}
+};
 
 /*----func----displayKorzinaItems------------------------*/
 
@@ -479,7 +480,7 @@ function displayKorzinaItems() {
       korzina.innerHTML += displayKorzinaItem;
     });
   }
-}
+};
 
 /*----func----delFromKorzina------------------------*/
 
@@ -498,7 +499,7 @@ function delFromKorzina() {
   korzinaPage();
   displayKorzinaItems();
   korzinaCounter.innerHTML = korzinaList.length;
-}
+};
 
 /*----func----clearKorzina------------------------*/
 
@@ -508,7 +509,7 @@ function clearKorzina() {
   korzinaPage();
   displayKorzinaItems();
   korzinaCounter.innerHTML = korzinaList.length;
-}
+};
 
 /*----func----korzinaPage------------------------*/
 
@@ -534,7 +535,7 @@ function korzinaPage() {
         </div>
     </div>
     `;
-}
+};
 
 /*----func----reviewsPage------------------------*/
 
@@ -571,7 +572,7 @@ function reviewsPage() {
       },
     },
   });
-}
+};
 
 /*----func----displayReviews------------------------*/
 
@@ -590,7 +591,7 @@ function displayReviews() {
 
     reviews.innerHTML += displayReview;
   });
-}
+};
 
 /*----func----aboutPage------------------------*/
 
@@ -598,7 +599,7 @@ function aboutPage() {
   mainContent.innerHTML = `
     <div class="pa1">
         <div class="_container pa1_container">
-            <h2 class="tittle leftTxt">О нас</h2>
+            <h2 class="tittle leftTxt aboutTittle">О нас</h2>
             <p class="about_paragraph">Однажды в центре Санкт-Петербурга молодой человек по имени Тимур открыл небольшой магазин виниловых пластинок. 
                 У Тимура всегда была страсть к музыке и уникальному звуку, который создают виниловые пластинки. Он верил, что душа музыки слышна более 
                 четко на виниле, и он хотел поделиться этим опытом с другими.</p>
@@ -632,95 +633,87 @@ function aboutPage() {
         </div>
     </div>
     `;
-}
+};
 
 /*----func----logInMenu------------------------*/
 
 function logInMenu() {
   wrapper.classList.add("lock");
   logInPopup.classList.add("active");
-}
+};
+
+/*----func----reset----------------*/
+
+function reset() {
+  document.getElementById("login").value = "";
+  document.getElementById("password").value  = "";
+  wrapper.classList.remove("lock");
+  logInPopup.classList.toggle("active");
+};
 
 /*----func----reg------------------------*/
 
 function reg() {
-  let login = document.getElementById("login"),
-    password = document.getElementById("password");
-
-  /*----сброс--------------------*/
-  function reset() {
-    login.value = "";
-    password.value = "";
-    wrapper.classList.remove("lock");
-    logInPopup.classList.toggle("active");
-  };
+  let login = document.getElementById("login").value.trim(),
+    password = document.getElementById("password").value.trim();
 
   /*----валидация--------------------*/
-  if (usersList[login.value] !== undefined) {
+  if (usersList[login] !== undefined) {
     alert("Пользователь с таким логином уже зарегистрирован на сайте.");
     reset();
     return;
   }
-  if (Boolean(login.value) == false || Boolean(password.value) == false) {
+  if (Boolean(login) == false || Boolean(password) == false) {
     alert("Все поля должны быть заполнены.");
     reset();
     return;
   }
-  if (login.value.length < 6) {
+  if (login.length < 6) {
     alert("Логин должен состоять как минимум из 6 символов.");
-    reset();
     return;
   }
-  if (password.value.length < 8) {
+  if (password.length < 8) {
     alert("Пароль должен состоять как минимум из 8 символов.");
-    reset();
     return;
   }
-  if (Boolean(login.value) && Boolean(password.value)) {
-    alert(`${login.value}, вы зарегистрированы!`);
-    usersList[login.value] = password.value;
-    console.log(usersList);
-    reset();
+  if (Boolean(login) && Boolean(password)) {
+    alert(`${login}, вы зарегистрированы!`);
+    usersList[login] = password;
     return;
   }
   
-}
+};
 
 /*----func----logIn------------------------*/
 
 function logIn() {
-  let login = document.getElementById("login"),
-    password = document.getElementById("password");
+  let login = document.getElementById("login").value.trim(),
+    password = document.getElementById("password").value.trim();
 
-  /*----сброс--------------------*/
-  function reset() {
-    login.value = "";
-    password.value = "";
-    wrapper.classList.remove("lock");
-    logInPopup.classList.toggle("active");
-  };
-  if (usersList[login.value] !== undefined && usersList[login.value] !== password.value) {
-    alert(`Неверный пароль!`);
-    reset();
+  if (usersList[login] == undefined) {
+    alert(`Нету пользователя с логином ${login}!`);
     return;
   };
-  if (usersList[login.value] !== undefined && usersList[login.value] == password.value) {
-    alert(`${login.value}, добро пожаловать!`);
-    logInName.innerHTML = login.value;
-    userName.innerHTML = login.value;
+  if (usersList[login] !== undefined && usersList[login] !== password) {
+    alert(`Неверный пароль!`);
+    return;
+  };
+  if (usersList[login] !== undefined && usersList[login] == password) {
+    alert(`${login}, добро пожаловать!`);
+    logInName.innerHTML = login;
+    userName.innerHTML = login;
     logInName.classList.add("active");
     logInBtn.classList.add("hidden");
-    reset();
     return;
   };
-}
+};
 
 /*----func----logOutMenu------------------------*/
 
 function logOutMenu() {
   logOutPopup.classList.add("active");
   wrapper.classList.add("lock");
-}
+};
 
 /*----func----logOut------------------------*/
 
@@ -729,21 +722,21 @@ function logOut() {
   logInBtn.classList.remove("hidden");
   logOutPopup.classList.remove("active");
   wrapper.classList.remove("lock");
-}
+};
 
 /*----func----logInBack------------------------*/
 
 function logInBack() {
   wrapper.classList.remove("lock");
   logInPopup.classList.remove("active");
-}
+};
 
 /*----func----logOutBack------------------------*/
 
 function logOutBack() {
   logOutPopup.classList.remove("active");
   wrapper.classList.remove("lock");
-}
+};
 
 /*----func----regModeActive------------------------*/
 
@@ -752,7 +745,7 @@ function regModeActive() {
   regMode.classList.add("active");
   logInPopupBtn.classList.add("hidden");
   regPopupBtn.classList.remove("hidden");  
-}
+};
 
 /*----func----logModeActive------------------------*/
 
@@ -761,7 +754,7 @@ function logModeActive() {
   logMode.classList.add("active");
   regPopupBtn.classList.add("hidden");
   logInPopupBtn.classList.remove("hidden");
-}
+};
 
 /*----btnsListen----------------------------*/
 
@@ -803,10 +796,12 @@ logInBtn.addEventListener("click", function () {
 
 regPopupBtn.addEventListener("click", function () {
   reg();
+  reset();
 });
 
 logInPopupBtn.addEventListener("click", function () {
   logIn();
+  reset();
 });
 
 themeBtn.addEventListener("click", function () {

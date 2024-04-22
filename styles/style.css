@@ -677,6 +677,9 @@ body {
 
 /*----about---------------------------------*/
 
+.aboutTittle {
+    margin: 0 0 40px 0;
+}
 .aboutSpan {
     margin: 20px 0 20px 0;
     font-size: 18px;
