@@ -37,6 +37,9 @@ html {
     height: 100%;
     position: relative;
 }
+html::-webkit-scrollbar {
+    display: none;
+}
 body {
     height: 100%;
     font-family: var(--mainFont);
