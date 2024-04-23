@@ -47,6 +47,7 @@ body {
     font-weight: normal;
     color: var(--black);
     position: relative;
+    transition: 0.5s;
 }
 .wrapper {
     min-height: 100%;
@@ -716,6 +717,7 @@ input:-webkit-autofill:focus {
     width: calc(50% - 20px);
     height: 400px;
     border: 1px solid var(--grey);
+    user-select: none;
 }
 .about_gallery_two {
     min-height: 1000px;
@@ -787,12 +789,14 @@ input:-webkit-autofill:focus {
     color: var(--white);
 }
 .footer_logo {
+    user-select: none;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;
     color: var(--white);
 }
 .socials {
+    user-select: none;
     display: flex;
     gap: 15px;
     align-items: center;
