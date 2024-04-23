@@ -109,7 +109,14 @@ body {
     bottom: -10px;
 }
 .hidden { display: none; }
-
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    border: 1px solid inherit;
+    -webkit-text-fill-color: var(--black);
+    -webkit-box-shadow: 0 0 0px 1000px inherit inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
 /*----header---------------------------------*/
 
 .header {
@@ -1339,4 +1346,14 @@ body.nightTheme .logInPopup h5, body.nightTheme .logOutPopup h5, body.nightTheme
 }
 body.nightTheme .logInPopup input {
     color: var(--white);
+}
+
+/*----nightTheme--inputs-------------------------------*/
+body.nightTheme input:-webkit-autofill,
+body.nightTheme input:-webkit-autofill:hover,
+body.nightTheme input:-webkit-autofill:focus {
+    border: 1px solid inherit;
+    -webkit-text-fill-color: var(--white);
+    -webkit-box-shadow: 0 0 0px 1000px inherit inset;
+    transition: background-color 5000s ease-in-out 0s;
 }

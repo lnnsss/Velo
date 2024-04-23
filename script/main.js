@@ -298,7 +298,7 @@ function catalogPage() {
             <div class="catalog_header">
                 <h2 class="tittle leftTxt">Альбомы</h2>
                 <div class="filters" id="filters">
-                  <div class="filter active" id="filterAll">All</div>
+                  <div class="filter" id="filterAll">All</div>
                   <div class="filter" id="filterRu">Ru</div>
                     <div class="filter" id="filterEn">En</div>
                     <div class="filter" id="filterSmall">до 25$</div>
@@ -310,6 +310,7 @@ function catalogPage() {
         </div>
     </div>
   `;
+  document.getElementById(mainFilter).classList.add("active");
   const filters = document.getElementById("filters");
   filters.addEventListener("click", (e) => {
     let clickedFilter = e.target.getAttribute("id");
@@ -323,7 +324,7 @@ function catalogPage() {
       document.getElementById(mainFilter).classList.add("active");
       displayTovars();
     }
-  })
+  });
 };
 
 /*----func----displayTovars------------------------*/
