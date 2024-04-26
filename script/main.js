@@ -44,112 +44,112 @@ let tovarList = [
     title: "test drive: archive",
     description: "LILDRUGHILL",
     price: 25,
-    img: "testDrive",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2Fcf79a509e5d49e423cb000258fd69ccf.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "PHYSICAL PAIN",
     description: "LOVV66",
     price: 20,
-    img: "physicalPain",
+    img: "https://images.genius.com/8d03ddb6670a1fbf2e39c2dd4387db1c.300x300x1.png",
     lang: "ru"
   },
   {
     title: "DAMN.",
     description: "Kendrick Lamar",
     price: 50,
-    img: "damn",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2Ff3f77222e1b615e0a10354ea6282ff22.1000x1000x1.png",
     lang: "en"
   },
   {
     title: "WILD EA$T",
     description: "SALUKI",
     price: 50,
-    img: "wildEast",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2Fb487fcefdace88d0cf74cfc770cd36ae.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "Life of a DON",
     description: "Don Toliver",
     price: 30,
-    img: "lifeOfADon",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F4001a0283899911145eb13d3857b8cb3.1000x1000x1.png",
     lang: "en"
   },
   {
     title: "KRISTINA",
     description: "LIL KRYSTALLL",
     price: 30,
-    img: "kristina",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F711e4a65113312a86fe551ffcbb34b1b.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "Sosa Muzik",
     description: "Платина",
     price: 30,
-    img: "sosaMuzik",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F6fa2a1df192bb6b8deee5c45bef2188e.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "Certified Lover Boy",
     description: "Drake",
     price: 35,
-    img: "certifiedLoverBoy",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2Ffa02d8bc4c7ee74b5a1408c2be032fea.1000x1000x1.png",
     lang: "en"
   },
   {
     title: "All Babies Fly",
     description: "LILDRUGHILL",
     price: 30,
-    img: "allBabiesFly",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F887904ba378e1843164a6a9aa0096136.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "Tsukuyomi Dream",
     description: "ROCKET",
     price: 20,
-    img: "tsukuyomiDream",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F909b5b9875c5ab3e44b1f0d04c67bf37.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "Heroes & Villains",
     description: "Metro Boomin",
     price: 50,
-    img: "heroesAndVillains",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F38a14946958b6dd834a697c217d89488.1000x1000x1.jpg",
     lang: "en"
   },
   {
     title: "glow",
     description: "LILDURGHILL",
     price: 25,
-    img: "glow",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F2a7e62006b809ff20c9a73b44ebb2fb9.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "PHILARMONIA",
     description: "PHARAOH",
     price: 50,
-    img: "philarmonia",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2Fabf929ba95ac8de8f8fd67f6e6580611.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "23",
     description: "Central Cee",
     price: 35,
-    img: "23",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2Fe2e71c4727c43b794627d6f6e31b603a.1000x1000x1.png",
     lang: "en"
   },
   {
     title: "AA LANGUAGE",
     description: "aarne",
     price: 40,
-    img: "aaLanguage",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F977075534279f0726fac84beebeb9ccb.1000x1000x1.png",
     lang: "ru"
   },
   {
     title: "PLAYERS CLUB 2",
     description: "OBLADAET",
     price: 30,
-    img: "playersClub2",
+    img: "https://t2.genius.com/unsafe/855x0/https%3A%2F%2Fimages.genius.com%2F89d85810150a9bf1acd23ffaa149a5e8.1000x1000x1.png",
     lang: "ru"
   },
 ];
@@ -165,34 +165,34 @@ let reviewsList = [
     name: "Тимур",
     message:
       "Спасибо за товар! Все качественно! Сначала думал это скам, но заказал. Не разочарован!",
-    img: "r1",
+    img: "https://i.pinimg.com/564x/a1/1d/f8/a11df85aa8e15f9e6bc05b9aedfb8046.jpg",
   },
   {
     name: "Роберт",
-    message: "Ну..",
-    img: "r2",
+    message: "ура",
+    img: "https://i.pinimg.com/564x/a5/c2/b8/a5c2b8f650cb989f86bfad50f7ad8e62.jpg",
   },
   {
     name: "Аня",
     message:
       "Большое спасибо! Наконецто могу послушать Анну Асти на виниле! Лучший подарок на день рождения!",
-    img: "r3",
+    img: "https://i.pinimg.com/564x/9f/49/f4/9f49f4a5330b92746648f88ff2d2f0e3.jpg",
   },
   {
     name: "Антон",
     message:
       "Подарили отцу Басту на виниле. Рад! 5 звезд, буду заказывать еще!",
-    img: "r4",
+    img: "https://www.thissongslaps.com/wp-content/uploads/2015/06/pegboard-nerds-the-wall-1.jpg",
   },
   {
     name: "Егор",
     message: "Плюс один диск в коллецию, класс!",
-    img: "r5",
+    img: "https://i.pinimg.com/564x/0e/c1/06/0ec10693225abd978966c3c4272a0c7e.jpg",
   },
   {
     name: "Айнур",
     message: "Товар пришел целым и не вредимым. Респект!",
-    img: "r6",
+    img: "https://i.pinimg.com/564x/9b/a0/af/9ba0af5d4e47d13498923c49da86c21d.jpg",
   },
 ];
 
@@ -340,7 +340,7 @@ function displayTovars() {
   tovarList.forEach(function (item, i) {
     displayTovar = `
         <div class="tovar ${item.lang}" id="item_${i}">
-            <img src="images/covers/${item.img}.jfif" alt="tovar" class="tovar_image">
+            <img src=${item.img} alt="tovar" class="tovar_image">
             <h4 class="tovar_title">${item.title}</h4>
             <span class="tovar_description">${item.description}</span>
             <span class="tovar_price">${item.price}$</span>
@@ -403,7 +403,7 @@ function addNewAlbum() {
     title: albumTitle.value,
     description: albumDescription.value,
     price: parseInt(albumPrice.value),
-    img: "defaultVinyl",
+    img: "https://avatars.mds.yandex.net/i?id=241ddc9de18088109ae647e2a00cce83087e871e-7755287-images-thumbs&n=13",
     lang: albumLang.value
   };
 
@@ -469,7 +469,7 @@ function displayKorzinaItems() {
       displayKorzinaItem = `
             <div class="korzinaItem">
                 <div class="korzina_tovar_image_div">
-                    <img src="images/covers/${item.img}.jfif" alt="tovar" class="korzina_tovar_image">
+                    <img src=${item.img} alt="tovar" class="korzina_tovar_image">
                 </div>
                 <h3 class="korzina_tovar_title">${item.title}</h3>
                 <h4 class="korzina_tovar_description">${item.description}</h4>
@@ -584,7 +584,7 @@ function displayReviews() {
   reviewsList.forEach(function (review, i) {
     displayReview = `
         <div class="swiper-slide review" id="review_${i}">
-            <img src="images/reviews/${review.img}") class="review_image">
+            <img src=${review.img} class="review_image">
             <h5 class="review_autor">${review.name}</h5>
             <p class="review_message">${review.message}</p>
         </div>
