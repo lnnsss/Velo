@@ -536,6 +536,9 @@ input:-webkit-autofill:focus {
     font-size: 24px;
     font-weight: 700;
     width: 20%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .korzina_tovar_description {
     font-size: 18px;
@@ -543,6 +546,9 @@ input:-webkit-autofill:focus {
     color: var(--secondGrey);
     width: 20%;
     margin: 0 60px 0 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .korzina_tovar_del {
     user-select: none;

@@ -196,13 +196,6 @@ let reviewsList = [
   },
 ];
 
-/*----rewiesList----------------------------*/
-
-let usersList = {
-  "l1lines": "qwerty123", 
-  "ronaldo777": "messiNoob"
-};
-
 /*----light--theme--------------------------*/
 
 themeImg.src = "images/dayIcon.png";
@@ -659,7 +652,7 @@ function reg() {
     password = document.getElementById("password").value.trim();
 
   /*----валидация--------------------*/
-  if (usersList[login] !== undefined) {
+  if (localStorage.getItem(login)) {
     alert("Пользователь с таким логином уже зарегистрирован на сайте.");
     reset();
     return;
@@ -678,8 +671,8 @@ function reg() {
     return;
   }
   if (Boolean(login) && Boolean(password)) {
+    localStorage.setItem(login, password);
     alert(`${login}, вы зарегистрированы!`);
-    usersList[login] = password;
     return;
   }
   
@@ -691,15 +684,15 @@ function logIn() {
   let login = document.getElementById("login").value.trim(),
     password = document.getElementById("password").value.trim();
 
-  if (usersList[login] == undefined) {
+  if (localStorage.getItem(login) == undefined) {
     alert(`Нету пользователя с логином ${login}!`);
     return;
   };
-  if (usersList[login] !== undefined && usersList[login] !== password) {
+  if (localStorage.getItem(login) !== undefined && localStorage.getItem(login) !== password) {
     alert(`Неверный пароль!`);
     return;
   };
-  if (usersList[login] !== undefined && usersList[login] == password) {
+  if (localStorage.getItem(login) !== undefined && localStorage.getItem(login) == password) {
     alert(`${login}, добро пожаловать!`);
     logInName.innerHTML = login;
     userName.innerHTML = login;
