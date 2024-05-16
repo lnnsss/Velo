@@ -196,6 +196,29 @@ let reviewsList = [
   },
 ];
 
+/*----class----album----------------------------*/
+
+class album {
+  constructor(title, description, price, lang) {
+    this.title = title;
+    this.description = description;
+    this.price = price;
+    this.img = "https://avatars.mds.yandex.net/i?id=241ddc9de18088109ae647e2a00cce83087e871e-7755287-images-thumbs&n=13";
+    this.lang = lang;
+  }
+};
+
+/*----class----korzinaItem----------------------------*/
+
+class korzinaItem {
+  constructor(title, description, price, img) {
+    this.title = title;
+    this.description = description;
+    this.price = price;
+    this.img = img;
+  }
+};
+
 /*----light--theme--------------------------*/
 
 themeImg.src = "images/dayIcon.png";
@@ -222,14 +245,11 @@ function pageCleaner() {
 
 function addToKorzina() {
   korzinaCounter.classList.add("active");
+  
   let itemId = event.target.getAttribute("id").replace(/\D/g, "");
   let res = tovarList[itemId];
-  let newKorzinaItem = {
-    title: res.title,
-    description: res.description,
-    price: res.price,
-    img: res.img,
-  };
+  let newKorzinaItem = new korzinaItem(res.title, res.description, res.price, res.img);
+
   korzinaList.push(newKorzinaItem);
   korzinaCounter.innerHTML = korzinaList.length;
   itogoPriceCounter = 0;
@@ -369,36 +389,30 @@ function displayTovars() {
 /*----func----addNewAlbum------------------------*/
 
 function addNewAlbum() {  
-  const albumTitle = document.getElementById("albumTitle"),
-    albumDescription = document.getElementById("albumDescription"),
-    albumPrice = document.getElementById("albumPrice"),
-    albumLang = document.querySelector('input[name="lang"]:checked');
+  const albumTitle = document.getElementById("albumTitle").value,
+    albumDescription = document.getElementById("albumDescription").value,
+    albumPrice = document.getElementById("albumPrice").value,
+    albumLang = document.querySelector('input[name="lang"]:checked').value;
 
   /*----проверка--на--заполненность--полей----------------------*/
-  if (!albumTitle.value || !albumDescription.value || !albumPrice.value) {
+  if (!albumTitle || !albumDescription || !albumPrice) {
     alert("Все поля должны быть заполнены!");
     return;
   }
 
   /*----редактирование--поля--цена------------------------*/
-  if (Number(albumPrice.value) + 0 != Number(albumPrice.value)) {
+  if (Number(albumPrice) + 0 != Number(albumPrice)) {
     alert(`Поле "цена" должно содержать числовое значение!`);
     return;
   }
 
   /*----проверка--поля--цена--на--отрицательное--значение------------------*/
-  if (Number(albumPrice.value) < 10) {
+  if (Number(albumPrice) < 10) {
     alert(`Цена не может быть ниже 10$!`);
     return;
   }
 
-  let newAlbum = {
-    title: albumTitle.value,
-    description: albumDescription.value,
-    price: parseInt(albumPrice.value),
-    img: "https://avatars.mds.yandex.net/i?id=241ddc9de18088109ae647e2a00cce83087e871e-7755287-images-thumbs&n=13",
-    lang: albumLang.value
-  };
+  let newAlbum = new album(albumTitle, albumDescription, parseInt(albumPrice), albumLang );
 
   tovarList.push(newAlbum);
   pageCleaner();
